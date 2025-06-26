@@ -7,7 +7,7 @@ table = dynamodb.Table('reminders')
 
 def lambda_handler(event, context):
     item = {
-        'RecordNumber': 1,
+        'Record_Number': 1,
         'Name': 'Warren',
         'Email': 'test@example.com',
         'Date': datetime.now().strftime('%d/%m/%Y')
