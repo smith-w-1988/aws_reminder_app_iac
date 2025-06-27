@@ -16,6 +16,11 @@ resource "aws_lambda_function" "reminder_insert" {
   depends_on = [
     aws_iam_policy.lambda_dynamodb_put_item
   ]
+  environment {
+    variables = {
+      EXPECTED_API_KEY = var.api_key_secret
+    }
+  }
 }
 
 

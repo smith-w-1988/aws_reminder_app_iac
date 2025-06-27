@@ -22,7 +22,14 @@ resource "aws_apigatewayv2_stage" "default" {
   api_id      = aws_apigatewayv2_api.reminder_api.id
   name        = "$default"
   auto_deploy = true
+
+  route_settings {
+    route_key              = "POST /reminder"
+    throttling_burst_limit = 5
+    throttling_rate_limit  = 0.0833
+  }
 }
+
 
 
 resource "aws_lambda_permission" "allow_apigw_invoke" {

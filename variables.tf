@@ -3,3 +3,10 @@ variable "aws_region" {
   type        = string
   default     = "eu-west-1"
 }
+
+
+variable "api_key_secret" {
+  description = "API key string to validate requests"
+  type        = string
+  sensitive   = true
+}
