@@ -10,3 +10,13 @@ resource "aws_dynamodb_table" "reminders" {
     type = "S"
   }
 }
+
+resource "aws_dynamodb_table_item" "initial_counter" {
+  table_name = aws_dynamodb_table.reminders.name
+  hash_key   = "PK"
+
+  item = jsonencode({
+    PK   = { S = "COUNTER" }      
+    Count = { N = "0" }        
+  })
+}
