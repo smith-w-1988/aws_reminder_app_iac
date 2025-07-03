@@ -37,6 +37,6 @@ override.tf.json
 terraform.rc
 
 
-lambda.zip
+*.zip
 
 .vscode

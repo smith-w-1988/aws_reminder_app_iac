@@ -1,7 +1,7 @@
 data "archive_file" "lambda_insert_zip" {
   type        = "zip"
-  source_dir  = "${path.module}/lambda_insert"
-  output_path = "${path.module}/lambda.zip"
+  source_file = "${path.module}/lambda_functions/lambda_insert_function.py"
+  output_path = "${path.module}/lambda_insert.zip"
 }
 
 

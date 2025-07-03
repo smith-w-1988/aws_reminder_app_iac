@@ -19,4 +19,8 @@ resource "aws_dynamodb_table_item" "initial_counter" {
     PK   = { S = "COUNTER" }      
     Count = { N = "0" }        
   })
+
+  lifecycle {
+    ignore_changes = [item]
+  }
 }
