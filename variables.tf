@@ -4,9 +4,14 @@ variable "aws_region" {
   default     = "eu-west-1"
 }
 
-
 variable "api_key_secret" {
   description = "API key string to validate requests"
   type        = string
   sensitive   = true
+}
+
+variable "cloudwatch_schedule" {
+  description = "Cron schedule for cloudwatch table scan job"
+  type = string
+  default = "cron(0 8 * * ? *)"
 }
