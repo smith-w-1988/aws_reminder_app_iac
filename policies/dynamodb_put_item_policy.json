@@ -5,7 +5,9 @@
       "Effect": "Allow",
       "Action": [
         "dynamodb:PutItem",
-        "dynamodb:UpdateItem"
+        "dynamodb:UpdateItem",
+        "dynamodb:GetItem",
+        "dynamodb:GetRecords"
       ],
       "Resource": "${table_arn}"
     }
