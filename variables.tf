@@ -15,3 +15,9 @@ variable "cloudwatch_schedule" {
   type = string
   default = "cron(0 8 * * ? *)"
 }
+
+variable "sender_mail" {
+  description = "Address used to send mail notification from"
+  type = string
+  sensitive = true
+}

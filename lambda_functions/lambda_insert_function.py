@@ -17,12 +17,16 @@ def validate_input(data):
     name = data.get('name')
     email = data.get('email')
     date = data.get('date')
+    subject = data.get('subject')
 
     if not isinstance(name, str) or not name.strip():
         errors.append("Invalid or missing 'name'.")
 
     if not isinstance(email, str) or not EMAIL_REGEX.match(email):
         errors.append("Invalid or missing 'email'.")
+    
+    if not isinstance(subject, str) or not subject.strip():
+        errors.append("Invalid subject title")
 
     try:
         datetime.strptime(date, "%d/%m/%Y")
@@ -70,7 +74,8 @@ def lambda_handler(event, context):
         'Record_Number': record_number,
         'Name': body['name'],
         'Email': body['email'],
-        'Date': body['date']
+        'Date': body['date'],
+        'Subject': body['subject']
     }
 
     table.put_item(Item=item)

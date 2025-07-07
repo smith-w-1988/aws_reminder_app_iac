@@ -39,4 +39,9 @@ resource "aws_lambda_function" "date_selector" {
   depends_on = [
     aws_iam_policy.lambda_dynamodb_put_item
   ]
+  environment {
+    variables = {
+      sender_mail = var.sender_mail
+    }
+  }
 }
